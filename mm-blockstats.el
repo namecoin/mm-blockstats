@@ -231,6 +231,8 @@
 		(setq loc-resultsymbol (intern (concat "BTC_Guild-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "/BTCC/" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "BTCC-" (format "%05x" loc-coinbaseversion)))))
+	       ((string-match "/mined by gbminers/" loc-resultstring)
+		(setq loc-resultsymbol (intern (concat "GBMiners-" (format "%05x" loc-coinbaseversion)))))
 	       ((string= "2c30a6aaac6d96687291475d7d52f4b469f665a6" loc-hash160)
 		(setq loc-resultsymbol (intern (concat "BTCC-" (format "%05x" loc-coinbaseversion)))))
 	       ((string= "adbc0b208ba2c41fbe9599942cba3c205fe37ed7" loc-hash160)
