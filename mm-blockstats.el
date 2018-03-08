@@ -265,6 +265,8 @@
                 (setq loc-resultsymbol (intern (concat "ViaBTC-" (format "%05x" loc-coinbaseversion)))))
                ((string-match "/BTC.COM/" loc-resultstring)
                 (setq loc-resultsymbol (intern (concat "BTC.com-" (format "%05x" loc-coinbaseversion)))))
+               ((string-match "/BTC.TOP/" loc-resultstring)
+                (setq loc-resultsymbol (intern (concat "BTC.TOP-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "P2SH" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "unknown-P2SH-supporter-" (format "%05x" loc-coinbaseversion)))))
 	       (t
