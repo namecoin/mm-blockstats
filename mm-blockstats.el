@@ -211,6 +211,8 @@
 
 	       ((string= "2bf64e2be04ba49a87d17ae9a9009d72efbc4724" loc-hash160)
 		(setq loc-resultsymbol (intern (concat "myBTCcoin-" (format "%05x" loc-coinbaseversion)))))
+               ((string= "cef3550ff9e637ddd120717d43fc21f8a563caf8" loc-hash160)
+                (setq loc-resultsymbol (intern (concat "Bixin-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "bitparking" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "bitparking-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "mmpool" loc-resultstring)
