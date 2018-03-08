@@ -261,6 +261,8 @@
 
 	       ((string-match "EMC" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "EclipseMC-" (format "%05x" loc-coinbaseversion)))))
+	       ((string-match "/ViaBTC/" loc-resultstring)
+                (setq loc-resultsymbol (intern (concat "ViaBTC-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "P2SH" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "unknown-P2SH-supporter-" (format "%05x" loc-coinbaseversion)))))
 	       (t
