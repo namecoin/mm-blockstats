@@ -171,9 +171,13 @@
 	    (setq loc-hexstring (car loc-blocksplit-step2))
 	    (setq loc-coinbaseversion (string-to-number (car (split-string (cadr (split-string loc-block "\"version\":"))))))
 	    (setq loc-blocksplit-step3 (split-string loc-block "\"asm\": \"OP_DUP OP_HASH160 "))
+	    (when (eq 1 (length loc-blocksplit-step3)) (setq loc-blocksplit-step3 (split-string loc-block "\"asm\": \"0 ")))
 	    ;;(when (eq 1 (length loc-blocksplit-step3)) (progn (princ (format "%d: unorthodox asm-OP_HASH160 sequence" i))(terpri)(sit-for 0)))
 	    (setq loc-blocksplit-step3 (split-string loc-block "\"asm\":"))
+	    (when (eq 1 (length loc-blocksplit-step3)) (progn (princ (format "%d: unorthodox asm-OP_HASH160 sequence" i))(terpri)(sit-for 0)))
 	    (setq loc-blocksplit-step4 (split-string (cadr loc-blocksplit-step3) "OP_HASH160"))
+	    (when (eq 1 (length loc-blocksplit-step4)) (setq loc-blocksplit-step4 (split-string (cadr loc-blocksplit-step3) "0")))
+	    (when (eq 1 (length loc-blocksplit-step4)) (progn (princ (format "%d: unorthodox asm-OP_HASH160 sequence" i))(terpri)(sit-for 0)))
 	    (setq loc-hash160 (car (split-string (cadr loc-blocksplit-step4))))
 
 	    (setq loc-txsplit-step0 (split-string loc-block "\"tx\":"))
