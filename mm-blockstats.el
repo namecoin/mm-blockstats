@@ -285,6 +285,8 @@
                 (setq loc-resultsymbol (intern (concat "Unknown (Coinbase /E2M & BTC.TOP/)-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "P2SH" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "unknown-P2SH-supporter-" (format "%05x" loc-coinbaseversion)))))
+	       ((string-match "[BSV]" loc-resultstring)
+		(setq loc-resultsymbol (intern (concat "unknown-BSV-pool-" (format "%05x" loc-coinbaseversion)))))
 	       (t
 		(setq loc-resultsymbol (intern (concat "unknown-" (format "%05x" loc-coinbaseversion))))))
 
