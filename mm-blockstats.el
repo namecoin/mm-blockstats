@@ -269,6 +269,8 @@
                 (setq loc-resultsymbol (intern (concat "BTC.TOP-" (format "%05x" loc-coinbaseversion)))))
                ((string-match "/BitClub Network/" loc-resultstring)
                 (setq loc-resultsymbol (intern (concat "BitClub Network-" (format "%05x" loc-coinbaseversion)))))
+               ((string-match "/E2M & BTC.TOP/" loc-resultstring)
+                (setq loc-resultsymbol (intern (concat "Unknown (Coinbase /E2M & BTC.TOP/)-" (format "%05x" loc-coinbaseversion)))))
 	       ((string-match "P2SH" loc-resultstring)
 		(setq loc-resultsymbol (intern (concat "unknown-P2SH-supporter-" (format "%05x" loc-coinbaseversion)))))
 	       (t
