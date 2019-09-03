@@ -273,6 +273,8 @@
                 (setq loc-resultsymbol (intern (concat "BTC.TOP-" (format "%05x" loc-coinbaseversion)))))
                ((string-match "/BitClub Network/" loc-resultstring)
                 (setq loc-resultsymbol (intern (concat "BitClub Network-" (format "%05x" loc-coinbaseversion)))))
+               ((string= "2a09f007d28aff030eb6aaeafbfbd2a817d4be34" loc-hash160)
+                (setq loc-resultsymbol (intern (concat "Allegedly Poolin-" (format "%05x" loc-coinbaseversion)))))
                ((string-match "/poolin.com/" loc-resultstring)
                 (setq loc-resultsymbol (intern (concat "Poolin-" (format "%05x" loc-coinbaseversion)))))
                ((string-match "/Bixin/" loc-resultstring)
@@ -300,6 +302,18 @@
 	      ;; 1MeffGLauEj2CZ18hRQqUauTXb9JAuLbGw = multipool.us according to github.
 	      ;; See btc tx cd9c38b55598fe73afeffc80102a7d03ebe522e9eb6bab7088933032877baa4d
 	      ;; N7rv47zEcxB8C71YvWBVGkkYjCNmGRXC9v ---> N3S9cBZiB6L9SdtiiZGBynyseD6yjG8Qc9
+
+	      ;; According to https://www.reddit.com/r/btc/comments/cz1f8w/major_unknown_miner_mining_to_qq4q_is_poolincoms/ ,
+	      ;; Poolin's BTC pool sometimes mines BCH blocks without the
+	      ;; standard /poolin.com/ coinbase string, but whose AuxPoW child
+	      ;; blocks pay to the standard Poolin NMC addresses.  Following
+	      ;; this alleged trail, we start with NMC block 466990, whose
+	      ;; coinbase is labeled as Poolin and whose block reward is paid
+	      ;; to MyHJAEs4u5HRPDEfCkD6TCGkyHZmzQ7iA8.
+	      ;; MyHJAEs4u5HRPDEfCkD6TCGkyHZmzQ7iA8 is also paid by the block
+	      ;; reward of NMC block 468730.  NMC block 468730's parent
+	      ;; coinbase string matches the Reddit description.  Its parent
+	      ;; coinbase Hash160 is 2a09f007d28aff030eb6aaeafbfbd2a817d4be34.
 
 	      ;; Here is another hack: display the last -n meaningful bytes of the coinbase string,
 	      ;; derived empirically from recent pool admins's preferences:
